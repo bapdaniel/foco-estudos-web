@@ -1,0 +1,11 @@
+{
+  "name": "foco-estudos-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check app.js && node --check model.js"
+  }
+}
+
