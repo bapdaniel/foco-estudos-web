@@ -2,6 +2,8 @@
 
 Página web para organizar tarefas de estudo e acompanhar o progresso. As tarefas são salvas no próprio navegador com `localStorage`.
 
+**Demonstração online:** https://bapdaniel.github.io/foco-estudos-web/
+
 ## O que pratiquei
 
 - HTML semântico
@@ -26,4 +28,3 @@ node --test
 ```
 
 Projeto educacional desenvolvido durante o início do curso de Análise e Desenvolvimento de Sistemas.
-
