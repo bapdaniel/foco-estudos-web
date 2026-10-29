@@ -1,3 +1,5 @@
+import { calcularProgresso, criarTarefa } from "./model.js";
+
 const STORAGE_KEY = "foco-estudos-tarefas";
 const form = document.querySelector("#task-form");
 const list = document.querySelector("#task-list");
@@ -47,8 +49,8 @@ function render() {
     list.append(item);
   });
 
-  const completed = tasks.filter((task) => task.done).length;
-  progress.textContent = `${completed} de ${tasks.length} concluídas`;
+  const status = calcularProgresso(tasks);
+  progress.textContent = `${status.completed} de ${status.total} concluídas`;
   emptyState.hidden = tasks.length > 0;
 }
 
@@ -56,9 +58,12 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   const title = document.querySelector("#title").value.trim();
   const minutes = Number(document.querySelector("#minutes").value);
-  if (!title || minutes < 5) return;
-
-  tasks.push({ id: Date.now(), title, minutes, done: false });
+  try {
+    tasks.push(criarTarefa(title, minutes));
+  } catch (error) {
+    alert(error.message);
+    return;
+  }
   save();
   form.reset();
   document.querySelector("#minutes").value = 30;
@@ -66,3 +71,4 @@ form.addEventListener("submit", (event) => {
 });
 
 render();
+
