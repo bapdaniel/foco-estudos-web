@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Organizador simples de tarefas de estudo" />
+    <title>Foco nos Estudos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <p class="eyebrow">ORGANIZADOR PESSOAL</p>
+        <h1>Foco nos Estudos</h1>
+        <p>Planeje pequenas tarefas e acompanhe sua evolução.</p>
+      </header>
+
+      <section class="card" aria-labelledby="nova-tarefa">
+        <h2 id="nova-tarefa">Nova tarefa</h2>
+        <form id="task-form">
+          <label>
+            Matéria ou tema
+            <input id="title" maxlength="60" required placeholder="Ex.: Lógica de programação" />
+          </label>
+          <label>
+            Tempo estimado (minutos)
+            <input id="minutes" type="number" min="5" max="480" value="30" required />
+          </label>
+          <button type="submit">Adicionar tarefa</button>
+        </form>
+      </section>
+
+      <section class="card" aria-labelledby="lista-tarefas">
+        <div class="section-heading">
+          <h2 id="lista-tarefas">Minhas tarefas</h2>
+          <span id="progress">0 de 0 concluídas</span>
+        </div>
+        <ul id="task-list" aria-live="polite"></ul>
+        <p id="empty-state">Nenhuma tarefa cadastrada ainda.</p>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
